@@ -9,7 +9,31 @@ class PtbrCpfCnpj extends TextInput
 {
     protected function setUp(): void
     {
-        $this->dynamic();
+        $this->dynamic()
+            ->dehydrateMask()
+        ;
+    }
+
+    public function dehydrateMask(bool|Closure $condition = true): static
+    {
+        if ($condition) {
+            $this->dehydrateStateUsing(
+                fn($state): null|float => $state ?
+                    floatval(
+                        Str::of($state)
+                            ->replace('.', '')
+                            ->replace(',', '')
+                            ->replace('-', '')
+                            ->replace('/', '')
+                            ->toString()
+                    ) :
+                    null
+            );
+        } else {
+            $this->dehydrateStateUsing(null);
+        }
+
+        return $this;
     }
 
     public function dynamic(bool $condition = true): static
