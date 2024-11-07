@@ -4,6 +4,7 @@ namespace Leandrocfe\FilamentPtbrFormFields;
 
 use Closure;
 use Filament\Forms\Components\TextInput;
+use Illuminate\Support\Str;
 
 class PtbrCpfCnpj extends TextInput
 {
