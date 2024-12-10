@@ -16,29 +16,34 @@ class PtbrCpfCnpj extends TextInput
     {
         if ($condition) {
             $this->extraAlpineAttributes([
-                'x-mask:dynamic' => '$input.length >14 ? \'99.999.999/9999-99\' : \'999.999.999-99\'',
+                "x-mask:dynamic" =>
+                    '$input.length >14 ? \'99.999.999/9999-99\' : \'999.999.999-99\'',
             ])->minLength(14);
         }
 
         return $this;
     }
 
-    public function cpf(string|Closure $format = '999.999.999-99'): static
+    public function cpf(string|Closure $format = "999.999.999-99"): static
     {
         $this->dynamic(false)
             ->extraAlpineAttributes([
-                'x-mask' => $format,
-            ]);
+                "x-mask:dynamic" => '\'999.999.999-99\'',
+                "x-mask" => "999.999.999-99",
+            ])
+            ->minLength(11);
 
         return $this;
     }
 
-    public function cnpj(string|Closure $format = '99.999.999/9999-99'): static
+    public function cnpj(string|Closure $format = "99.999.999/9999-99"): static
     {
         $this->dynamic(false)
             ->extraAlpineAttributes([
-                'x-mask' => $format,
-            ]);
+                "x-mask:dynamic" => '\'99.999.999/9999-99\'',
+                "x-mask" => "99.999.999/9999-99",
+            ])
+            ->minLength(11);
 
         return $this;
     }
