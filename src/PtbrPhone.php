@@ -16,7 +16,7 @@ class PtbrPhone extends TextInput
     {
         if ($condition) {
             $this->extraAlpineAttributes([
-                'x-mask:dynamic' => '$input.length >=14 ? \'(99)99999-9999\' : \'(99)9999-9999\'',
+                'x-mask:dynamic' => '($input.match(/\d/g) || []).length > 10 ? \'(99)99999-9999\' : \'(99)9999-9999\'',
             ])->minLength(13);
         }
 
