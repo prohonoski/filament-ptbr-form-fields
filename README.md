@@ -21,7 +21,7 @@ composer require leandrocfe/filament-ptbr-form-fields:"^2.0"
 To create a dynamic input that accepts either CPF or CNPJ, use:
 
 ```php
-use Leandrocfe\FilamentPtbrFormFields\PtbrCpfCnpj;
+use Proho\FilamentPtbrFormFields\PtbrCpfCnpj;
 PtbrCpfCnpj::make('cpf_or_cnpj')
 ```
 
@@ -79,7 +79,7 @@ PtbrCpfCnpj::make('cnpj')
 To create a dynamic input that formats phone numbers with DDD, use:
 
 ```php
-use Leandrocfe\FilamentPtbrFormFields\PtbrPhone;
+use Proho\FilamentPtbrFormFields\PtbrPhone;
 PtbrPhone::make('phone_number')
 ```
 
@@ -100,7 +100,7 @@ PtbrPhone::make('phone_number')
 To create a money input with the Brazilian currency symbol as the prefix, use:
 
 ```php
-use Leandrocfe\FilamentPtbrFormFields\PtbrMoney;
+use Proho\FilamentPtbrFormFields\PtbrMoney;
 PtbrMoney::make('price')
 ```
 
@@ -130,7 +130,7 @@ PtbrMoney::make('price')
 To integrate with the ViaCep API for CEP validation and address autofill, use:
 
 ```php
-use Leandrocfe\FilamentPtbrFormFields\PtbrCep;
+use Proho\FilamentPtbrFormFields\PtbrCep;
 use Filament\Forms\Components\TextInput;
 PtbrCep::make('postal_code')
     ->viaCep(
@@ -182,8 +182,8 @@ If you discover a security vulnerability within this package, please send an e-m
 
 ## Credits
 
--   [Leandro Costa Ferreira](https://github.com/leandrocfe)
--   [All Contributors](../../contributors)
+- [Leandro Costa Ferreira](https://github.com/leandrocfe)
+- [All Contributors](../../contributors)
 
 ## License
 

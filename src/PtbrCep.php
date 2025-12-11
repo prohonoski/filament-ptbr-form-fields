@@ -1,6 +1,6 @@
 <?php
 
-namespace Leandrocfe\FilamentPtbrFormFields;
+namespace Proho\FilamentPtbrFormFields;
 
 use Filament\Forms\Components\Actions\Action;
 use Filament\Forms\Components\TextInput;
@@ -17,8 +17,11 @@ class PtbrCep extends TextInput
      * @param  string  $errorMessage
      * @param  array  $setFields
      */
-    public function viaCep($mode = 'suffix', $errorMessage = 'CEP inválido.', $setFields = []): static
-    {
+    public function viaCep(
+        $mode = "suffix",
+        $errorMessage = "CEP inválido.",
+        $setFields = [],
+    ): static {
         /**
          * @param  string  $state
          * @param  Livewire  $livewire
@@ -27,8 +30,17 @@ class PtbrCep extends TextInput
          * @param  string  $errorMessage
          * @param  array  $setFields
          */
-        $viaCepRequest = function ($state, $livewire, $set, $component, $errorMessage, $setFields) {
-            $name = $livewire->form->getStatePath() ? $livewire->form->getStatePath().'.'.$component->getName() : $component->getName();
+        $viaCepRequest = function (
+            $state,
+            $livewire,
+            $set,
+            $component,
+            $errorMessage,
+            $setFields,
+        ) {
+            $name = $livewire->form->getStatePath()
+                ? $livewire->form->getStatePath() . "." . $component->getName()
+                : $component->getName();
             $livewire->validateOnly($name);
 
             /**
@@ -40,36 +52,87 @@ class PtbrCep extends TextInput
                 $set($key, $request[$value] ?? null);
             }
 
-            if (Arr::has($request, 'erro')) {
+            if (Arr::has($request, "erro")) {
                 throw ValidationException::withMessages([
                     $name => $errorMessage,
                 ]);
             }
         };
 
-        $this
-            ->minLength(9)
-            ->extraAlpineAttributes(['x-mask' => '99999-999'])
-            ->afterStateUpdated(function ($state, $livewire, $set, $component) use ($errorMessage, $setFields, $viaCepRequest) {
-                $viaCepRequest($state, $livewire, $set, $component, $errorMessage, $setFields);
+        $this->minLength(9)
+            ->extraAlpineAttributes(["x-mask" => "99999-999"])
+            ->afterStateUpdated(function (
+                $state,
+                $livewire,
+                $set,
+                $component,
+            ) use ($errorMessage, $setFields, $viaCepRequest) {
+                $viaCepRequest(
+                    $state,
+                    $livewire,
+                    $set,
+                    $component,
+                    $errorMessage,
+                    $setFields,
+                );
             })
-            ->suffixAction(function ($state, $livewire, $set, $component) use ($mode, $errorMessage, $setFields, $viaCepRequest) {
-                if ($mode === 'suffix') {
-                    return Action::make('search-action')
-                        ->label('Buscar CEP')
-                        ->icon('heroicon-o-search')
-                        ->action(function () use ($state, $livewire, $set, $component, $errorMessage, $setFields, $viaCepRequest) {
-                            $viaCepRequest($state, $livewire, $set, $component, $errorMessage, $setFields);
+            ->suffixAction(function ($state, $livewire, $set, $component) use (
+                $mode,
+                $errorMessage,
+                $setFields,
+                $viaCepRequest,
+            ) {
+                if ($mode === "suffix") {
+                    return Action::make("search-action")
+                        ->label("Buscar CEP")
+                        ->icon("heroicon-o-search")
+                        ->action(function () use (
+                            $state,
+                            $livewire,
+                            $set,
+                            $component,
+                            $errorMessage,
+                            $setFields,
+                            $viaCepRequest,
+                        ) {
+                            $viaCepRequest(
+                                $state,
+                                $livewire,
+                                $set,
+                                $component,
+                                $errorMessage,
+                                $setFields,
+                            );
                         });
                 }
             })
-            ->prefixAction(function ($state, $livewire, $set, $component) use ($mode, $errorMessage, $setFields, $viaCepRequest) {
-                if ($mode === 'prefix') {
-                    return Action::make('search-action')
-                        ->label('Buscar CEP')
-                        ->icon('heroicon-o-search')
-                        ->action(function () use ($state, $livewire, $set, $component, $errorMessage, $setFields, $viaCepRequest) {
-                            $viaCepRequest($state, $livewire, $set, $component, $errorMessage, $setFields);
+            ->prefixAction(function ($state, $livewire, $set, $component) use (
+                $mode,
+                $errorMessage,
+                $setFields,
+                $viaCepRequest,
+            ) {
+                if ($mode === "prefix") {
+                    return Action::make("search-action")
+                        ->label("Buscar CEP")
+                        ->icon("heroicon-o-search")
+                        ->action(function () use (
+                            $state,
+                            $livewire,
+                            $set,
+                            $component,
+                            $errorMessage,
+                            $setFields,
+                            $viaCepRequest,
+                        ) {
+                            $viaCepRequest(
+                                $state,
+                                $livewire,
+                                $set,
+                                $component,
+                                $errorMessage,
+                                $setFields,
+                            );
                         });
                 }
             });

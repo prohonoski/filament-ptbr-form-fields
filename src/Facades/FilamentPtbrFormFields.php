@@ -1,16 +1,16 @@
 <?php
 
-namespace Leandrocfe\FilamentPtbrFormFields\Facades;
+namespace Proho\FilamentPtbrFormFields\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Leandrocfe\FilamentPtbrFormFields\FilamentPtbrFormFields
+ * @see \Proho\FilamentPtbrFormFields\FilamentPtbrFormFields
  */
 class FilamentPtbrFormFields extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return \Leandrocfe\FilamentPtbrFormFields\FilamentPtbrFormFields::class;
+        return \Proho\FilamentPtbrFormFields\FilamentPtbrFormFields::class;
     }
 }

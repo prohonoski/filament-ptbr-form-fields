@@ -1,6 +1,6 @@
 <?php
 
-namespace Leandrocfe\FilamentPtbrFormFields\Database\Factories;
+namespace Proho\FilamentPtbrFormFields\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 

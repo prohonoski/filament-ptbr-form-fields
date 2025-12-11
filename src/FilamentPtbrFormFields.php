@@ -1,7 +1,5 @@
 <?php
 
-namespace Leandrocfe\FilamentPtbrFormFields;
+namespace Proho\FilamentPtbrFormFields;
 
-class FilamentPtbrFormFields
-{
-}
+class FilamentPtbrFormFields {}

@@ -1,5 +1,5 @@
 <?php
 
-use Leandrocfe\FilamentPtbrFormFields\Tests\TestCase;
+use Proho\FilamentPtbrFormFields\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);

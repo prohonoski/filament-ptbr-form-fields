@@ -1,6 +1,6 @@
 <?php
 
-namespace Leandrocfe\FilamentPtbrFormFields;
+namespace Proho\FilamentPtbrFormFields;
 
 use Closure;
 use Filament\Forms\Components\TextInput;
@@ -16,19 +16,20 @@ class PtbrPhone extends TextInput
     {
         if ($condition) {
             $this->extraAlpineAttributes([
-                'x-mask:dynamic' => '($input.match(/\d/g) || []).length > 10 ? \'(99)99999-9999\' : \'(99)9999-9999\'',
+                "x-mask:dynamic" =>
+                    '($input.match(/\d/g) || []).length > 10 ? \'(99)99999-9999\' : \'(99)9999-9999\'',
             ])->minLength(13);
         }
 
         return $this;
     }
 
-    public function format(string|Closure $format = '(99)99999-9999'): static
+    public function format(string|Closure $format = "(99)99999-9999"): static
     {
         $this->dynamic(false)
             ->minLength(0)
             ->extraAlpineAttributes([
-                'x-mask' => $format,
+                "x-mask" => $format,
             ]);
 
         return $this;

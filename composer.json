@@ -36,13 +36,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Leandrocfe\\FilamentPtbrFormFields\\": "src/",
-            "Leandrocfe\\FilamentPtbrFormFields\\Database\\Factories\\": "database/factories/"
+            "Proho\\FilamentPtbrFormFields\\": "src/",
+            "Proho\\FilamentPtbrFormFields\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Leandrocfe\\FilamentPtbrFormFields\\Tests\\": "tests/"
+            "Proho\\FilamentPtbrFormFields\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -62,10 +62,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Leandrocfe\\FilamentPtbrFormFields\\FilamentPtbrFormFieldsServiceProvider"
+                "Proho\\FilamentPtbrFormFields\\FilamentPtbrFormFieldsServiceProvider"
             ],
             "aliases": {
-                "FilamentPtbrFormFields": "Leandrocfe\\FilamentPtbrFormFields\\Facades\\FilamentPtbrFormFields"
+                "FilamentPtbrFormFields": "Proho\\FilamentPtbrFormFields\\Facades\\FilamentPtbrFormFields"
             }
         }
     },
